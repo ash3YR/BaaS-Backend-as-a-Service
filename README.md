@@ -41,9 +41,17 @@ A powerful, dynamic Backend-as-a-Service built with **.NET 8** and **Entity Fram
 
 ## How to Use
 
+*(Note: Please ensure you save your screenshots as `upload-screen.png` and `results-screen.png` into an `assets/` folder in the project directory for these images to render)*
+
 1. **Access the Portal**: Open the application URL in your browser.
 2. **Register**: Switch to the **Register** tab and create a new account. The application will provision your personal API keys.
+
+![Upload File and Get API Key](assets/upload-screen.png)
+
 3. **Upload Data**: Upload any CSV or Excel file. The application will ingest the file, detect the data types, create a dedicated table in Postgres, and import all the rows.
+
+![Provisioned Table and Generated APIs](assets/results-screen.png)
+
 4. **Test Your APIs**: Once uploaded, your live API endpoints will be displayed on-screen. Copy your `Admin API Key` and pass it in the `x-api-key` header when testing the APIs in Postman or cURL.
 
 ## Security
