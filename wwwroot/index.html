@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic BaaS Engine</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section id="auth-section" class="hero-card hidden">
+      <div class="eyebrow">Welcome to Dynamic BaaS</div>
+      <h1>Sign In or Register</h1>
+      <p class="hero-copy">
+        Create an account or log in to get your API keys and start provisioning databases instantly.
+      </p>
+
+      <div class="auth-tabs">
+        <button id="tab-login" class="tab-button active" type="button">Login</button>
+        <button id="tab-register" class="tab-button" type="button">Register</button>
+      </div>
+
+      <form id="auth-form" class="upload-panel">
+        <label class="upload-field">
+          <span>Email</span>
+          <input id="auth-email" type="email" required placeholder="you@example.com">
+        </label>
+        <label class="upload-field">
+          <span>Password</span>
+          <input id="auth-password" type="password" required minlength="6" placeholder="Min 6 characters">
+        </label>
+        <button id="auth-submit-button" type="submit">Log In</button>
+      </form>
+
+      <div id="auth-status-banner" class="status-banner hidden"></div>
+    </section>
+
+    <div id="app-section" class="hidden">
+      <section class="hero-card">
+        <div class="header-bar">
+          <div class="eyebrow">Dynamic Backend-as-a-Service</div>
+          <button id="logout-button" class="small-button ghost" type="button">Log Out</button>
+        </div>
+        <h1>Upload your file. Get a Postgres-backed table and live APIs.</h1>
+        <p class="hero-copy">
+          This service ingests CSV and Excel files, infers data types, provisions PostgreSQL tables,
+          inserts rows, and gives you ready-to-use CRUD API endpoints automatically.
+        </p>
+
+        <div class="api-keys-panel">
+          <strong>Your Admin API Key:</strong> <code id="display-admin-key">-</code>
+          <p class="hint">Pass this in the <code>x-api-key</code> header for full access to your provisioned APIs in Postman.</p>
+        </div>
+
+        <form id="upload-form" class="upload-panel">
+          <label class="upload-field">
+            <span>Select file</span>
+            <input id="file-input" name="file" type="file" accept=".csv,.txt,.xlsx" required>
+          </label>
+          <p class="hint">Accepted formats: CSV, TXT, XLSX. Max size: 5 MB.</p>
+          <button id="submit-button" type="submit">Upload And Generate APIs</button>
+        </form>
+
+        <div id="status-banner" class="status-banner hidden"></div>
+      </section>
+
+      <section id="result-section" class="results-grid hidden">
+        <article class="result-card">
+          <h2>Provisioned Table</h2>
+          <div class="meta-grid">
+            <div>
+              <span class="meta-label">Table name</span>
+              <strong id="table-name">-</strong>
+            </div>
+            <div>
+              <span class="meta-label">Rows inserted</span>
+              <strong id="rows-inserted">0</strong>
+            </div>
+            <div>
+              <span class="meta-label">Status</span>
+              <strong id="provision-status">-</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="result-card">
+          <h2>Detected Schema</h2>
+          <div id="schema-list" class="chip-grid"></div>
+        </article>
+
+        <article class="result-card wide">
+          <h2>Database Preview</h2>
+          <div id="preview-table" class="table-wrapper"></div>
+        </article>
+
+        <article class="result-card wide">
+          <h2>Generated API Operations</h2>
+          <div id="api-list" class="api-list"></div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
