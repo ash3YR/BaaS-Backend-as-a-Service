@@ -57,12 +57,18 @@ h2 { margin-bottom: 18px; font-size: 1.45rem; }
 .upload-panel { display: grid; gap: 14px; }
 .upload-field { display: grid; gap: 10px; font-weight: 700; }
 
-input[type="file"] {
+input[type="file"], input[type="email"], input[type="password"] {
   width: 100%;
   padding: 18px;
   border: 1px dashed rgba(0, 109, 119, 0.45);
   border-radius: 18px;
   background: rgba(0, 109, 119, 0.05);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input[type="email"], input[type="password"] {
+  border: 1px solid rgba(0, 109, 119, 0.45);
 }
 
 button {

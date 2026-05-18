@@ -1,0 +1,13 @@
+.dockerignore
+.env
+.git
+.gitignore
+.vs
+.vscode
+*/*bin
+*/*obj
+bin/
+obj/
+appsettings.Development.json
+run.err
+run.out
